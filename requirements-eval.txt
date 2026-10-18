@@ -1,0 +1,4 @@
+# Extra dependencies for the evaluation scripts (evaluation/)
+ragas==0.4.3
+# ragas 0.4.3 imports langchain_community.chat_models.vertexai, removed in 0.4.2
+langchain-community==0.4.1

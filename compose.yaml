@@ -1,0 +1,34 @@
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./chroma_db:/app/chroma_db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    ports:
+      - "8501:8501"
+    environment:
+      API_URL: http://backend:8000
+    depends_on:
+      - backend
+
+  # Only started on demand: docker compose run --rm evaluation
+  evaluation:
+    profiles: ["eval"]
+    build:
+      context: .
+      dockerfile: Dockerfile.eval
+    env_file:
+      - .env
+    volumes:
+      - .:/app

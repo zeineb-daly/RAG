@@ -1,0 +1,7 @@
+# ESILV colors
+[theme]
+base = "light"
+primaryColor = "#D0105A"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F5F5"
+textColor = "#1E1E1C"
