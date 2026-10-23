@@ -1,0 +1,630 @@
+[
+  {
+    "id": "hadoop-fact-01",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What are the low-level components of the Hadoop ecosystem presented in the course?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 2
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 5
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-fact-02",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is the default replication factor in HDFS?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 30
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 31
+      },
+      {
+        "file": "intro.pdf",
+        "page": 38
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-fact-03",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is the default size of an HDFS block?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 30
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 34
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-fact-04",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What kind of data store is ZooKeeper?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 10
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 17
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-fact-05",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Which operations does the HDFS API allow on files?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 23
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-fact-06",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How many NameNodes does an HDFS cluster have and what are their roles?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 29
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-fact-07",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Which cluster managers can Spark run on?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 41
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-fact-08",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Which features does Oozie add that Yarn is missing?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 61
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 63
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-01",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What happens when a DataNode disappears from the cluster?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-02",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Why does HDFS struggle with too many small files?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 27
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 28
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-03",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How does a ZooKeeper write get committed across the cluster?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 16
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-04",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Why is ZooKeeper not a general purpose key-value database?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 17
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-05",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How does HDFS place block replicas across racks?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 32
+      },
+      {
+        "file": "intro.pdf",
+        "page": 42
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-06",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is the main difference between Yarn and Kubernetes?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 46
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-07",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Why is MapReduce no longer used?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 37
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-conc-08",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How does a Yarn application get its containers launched?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 42
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 44
+      },
+      {
+        "file": "intro.pdf",
+        "page": 54
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-01",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How can servers discover each other and know which ones are still alive?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 12
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 13
+      },
+      {
+        "file": "3-failure-and-resiliency-pinciples-distributed-computing.pdf",
+        "page": 48
+      },
+      {
+        "file": "3-failure-and-resiliency-pinciples-distributed-computing.pdf",
+        "page": 49
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-02",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What happens to the cluster file system if the main metadata server crashes?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 28
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-03",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Can I change one byte in the middle of a file stored on the Hadoop file system?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 23
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 13
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 22
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-04",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "When a storage machine joins the cluster again, what does it tell the master?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-05",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How does the cluster keep data safe if a whole server rack goes down?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 32
+      },
+      {
+        "file": "intro.pdf",
+        "page": 42
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-06",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Why is the old Google-style batch processing much slower than Spark?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 37
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-07",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How can a company share cluster capacity between several teams?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 47
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 48
+      },
+      {
+        "file": "intro.pdf",
+        "page": 53
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-08",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How can I schedule a job to run automatically every weekday on Hadoop?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 61
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 63
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-09",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How can I start a Spark job with a simple HTTP request?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 74
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 75
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-para-10",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "How can a pipeline automatically rerun a job when its input data changes?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 76
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 77
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "hadoop-lex-01",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is an EphemeralZNode?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 12
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 13
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 14
+      },
+      {
+        "file": "3-failure-and-resiliency-pinciples-distributed-computing.pdf",
+        "page": 48
+      },
+      {
+        "file": "3-failure-and-resiliency-pinciples-distributed-computing.pdf",
+        "page": 49
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "hadoop-lex-02",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is etcd?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 18
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 19
+      }
+    ],
+    "keywords": [],
+    "notes": "tool name"
+  },
+  {
+    "id": "hadoop-lex-03",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is Curator used for?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 18
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 19
+      }
+    ],
+    "keywords": [],
+    "notes": "tool name"
+  },
+  {
+    "id": "hadoop-lex-04",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What does hdfs dfs -put do?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 26
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "hadoop-lex-05",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is the NameNode safe mode?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "hadoop-lex-06",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "Why is ZooKeeper CP in the CAP theorem?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 17
+      }
+    ],
+    "keywords": [],
+    "notes": "acronym"
+  },
+  {
+    "id": "hadoop-lex-07",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What does RF = 3 mean in HDFS?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 31
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 30
+      },
+      {
+        "file": "intro.pdf",
+        "page": 38
+      }
+    ],
+    "keywords": [],
+    "notes": "acronym + number"
+  },
+  {
+    "id": "hadoop-lex-08",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What is yarn.scheduler.capacity.root.queues?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 48
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "hadoop-lex-09",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What are Volcano and YuniKorn?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 45
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 49
+      },
+      {
+        "file": "intro.pdf",
+        "page": 56
+      }
+    ],
+    "keywords": [],
+    "notes": "tool name"
+  },
+  {
+    "id": "hadoop-lex-10",
+    "course": "4-hadoop-ecosystem.pdf",
+    "question": "What are OpenLineage and Marquez?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 79
+      }
+    ],
+    "keywords": [],
+    "notes": "tool name"
+  }
+]

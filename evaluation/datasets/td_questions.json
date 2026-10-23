@@ -1,0 +1,274 @@
+[
+  {
+    "id": "td-01",
+    "course": null,
+    "question": "Why is it better to write fewer, bigger Parquet files than many small files?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 27
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 28
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 52
+      },
+      {
+        "file": "intro.pdf",
+        "page": 91
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part2 ex19; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-02",
+    "course": null,
+    "question": "Why does reading only one column of a Parquet dataset read fewer bytes than the same query on a CSV dataset?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 30
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 33
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 9
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part2 ex20; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-03",
+    "course": null,
+    "question": "Why are the files written by Spark named part-000xx with a UUID?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 54
+      },
+      {
+        "file": "TD2-part1-spark-read-write.pdf",
+        "page": 29
+      },
+      {
+        "file": "TD2-part2-spark-read-write.pdf",
+        "page": 4
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part1 ex10; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-04",
+    "course": null,
+    "question": "Why does Spark first write its output files into a _temporary directory?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 7
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 8
+      },
+      {
+        "file": "TD2-part1-spark-read-write.pdf",
+        "page": 25
+      },
+      {
+        "file": "TD2-part1-spark-read-write.pdf",
+        "page": 29
+      },
+      {
+        "file": "TD2-part2-spark-read-write.pdf",
+        "page": 4
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part1 ex10; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-05",
+    "course": null,
+    "question": "What does repartition(1) do before writing a dataset?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 52
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 82
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 83
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part2 ex17; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-06",
+    "course": null,
+    "question": "What is the difference between a Scala collection and a Spark Dataset in memory?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 23
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 24
+      },
+      {
+        "file": "TD1-spark-shell.pdf",
+        "page": 85
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD1 ex14; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-07",
+    "course": null,
+    "question": "Why does withColumnRenamed return a new Dataset instead of modifying the existing one?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 40
+      },
+      {
+        "file": "TD1-spark-shell.pdf",
+        "page": 64
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD1 ex7; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-08",
+    "course": null,
+    "question": "What are the different ways to filter the rows of a Spark Dataset?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 65
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 66
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 67
+      },
+      {
+        "file": "TD1-spark-shell.pdf",
+        "page": 67
+      },
+      {
+        "file": "TD1-spark-shell.pdf",
+        "page": 90
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD1 ex16; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-09",
+    "course": null,
+    "question": "Is there an UPDATE statement to modify rows in Spark?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 44
+      },
+      {
+        "file": "TD2-part1-spark-read-write.pdf",
+        "page": 25
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part1 To Remember; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-10",
+    "course": null,
+    "question": "Is a Spark SQL table the same thing as a directory of files?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 9
+      },
+      {
+        "file": "intro.pdf",
+        "page": 88
+      },
+      {
+        "file": "TD2-part1-spark-read-write.pdf",
+        "page": 24
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part1 spoiler TD3; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-11",
+    "course": null,
+    "question": "How can flatMap be used to split lines of text into words?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 69
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 71
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part1 ex14 word count; answer also in a course, not only in the TD"
+  },
+  {
+    "id": "td-12",
+    "course": null,
+    "question": "Why does a Spark job become very slow when the data does not fit in memory?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 25
+      },
+      {
+        "file": "intro.pdf",
+        "page": 114
+      },
+      {
+        "file": "TD2-part1-spark-read-write.pdf",
+        "page": 7
+      }
+    ],
+    "keywords": [],
+    "notes": "from TD2-part1 memory warning; answer also in a course, not only in the TD"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "oos-01",
+    "course": null,
+    "question": "What is MongoDB and how does it store documents?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-02",
+    "course": null,
+    "question": "How does Cassandra handle consistency levels?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-03",
+    "course": null,
+    "question": "How does Apache Flink handle event time?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-04",
+    "course": null,
+    "question": "How is a neural network trained with backpropagation?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-05",
+    "course": null,
+    "question": "What is GraphQL and how is it different from REST?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-06",
+    "course": null,
+    "question": "How does Snowflake separate storage and compute?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-07",
+    "course": null,
+    "question": "How does Airflow schedule its workflows?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-08",
+    "course": null,
+    "question": "How does the Paxos consensus algorithm work?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-09",
+    "course": null,
+    "question": "What is Amazon Redshift used for?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  },
+  {
+    "id": "oos-10",
+    "course": null,
+    "question": "How do you filter rows in a pandas DataFrame?",
+    "type": "out_of_scope",
+    "relevant": [],
+    "keywords": [],
+    "notes": "term not found in any of the 6 PDFs"
+  }
+]

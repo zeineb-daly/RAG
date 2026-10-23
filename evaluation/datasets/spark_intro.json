@@ -1,0 +1,594 @@
+[
+  {
+    "id": "spark-fact-01",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What are the top 4 challenges of distributed processing?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 4
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 5
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 6
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 7
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 8
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-fact-02",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What are the roles of the driver and the executors?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 23
+      },
+      {
+        "file": "TD1-spark-shell.pdf",
+        "page": 85
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-fact-03",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What is a task in Spark?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 27
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-fact-04",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How many threads are generally used per CPU core?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 29
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-fact-05",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Which dataset operations are easy to parallelize?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 19
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 20
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-fact-06",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Which wide transformations are presented in the course?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 75
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-fact-07",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How many partitions does Spark use by default after a shuffle?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 87
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-fact-08",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What are the main differences between traditional databases and Big Data processing?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 9
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-01",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What is the difference between narrow and wide transformations?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 58
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 73
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-02",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Is Spark faster because it caches shuffle data in memory?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 22
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-03",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How does Spark handle partitions that do not fit in an executor's RAM?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 25
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-04",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Why is a shuffle service needed when an executor is lost?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 34
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-05",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How does Spark sort a distributed dataset internally?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 80
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-06",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Why can repartitioning by columns produce skewed partitions?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 89
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-07",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How does a sort merge join work?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 95
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 96
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-conc-08",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Why does Spark use immutable datasets and a functional API instead of loops?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 40
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 41
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 48
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-01",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How can I process data that is far too big for the memory of one machine?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 12
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 16
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-02",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How do I change a value in a row if datasets cannot be modified?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 44
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-03",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How do I remove some rows from a dataset?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 45
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-04",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How do I combine a big sales table with a small product table efficiently?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 91
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 93
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-05",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Why are fewer threads busy at the end of a job than at the start?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-06",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Why do I get lots of tiny output files when I save my results?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 52
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-07",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Why are files starting with an underscore ignored when loading a folder?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 51
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-08",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "Why should I not bring a whole big dataset back to the main program?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 47
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-09",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How can machines be added or removed while a job is running?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 35
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 37
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-para-10",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "How does Spark decide which machine reads which input file?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 49
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "spark-lex-01",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What does mapPartitions() do?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 70
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 71
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "spark-lex-02",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What is the difference between sort() and sortWithinPartitions()?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 78
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 81
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "spark-lex-03",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What is a BroadcastHashJoin?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 93
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "spark-lex-04",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What is TimSort used for in Spark?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 76
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 80
+      }
+    ],
+    "keywords": [],
+    "notes": "proper name"
+  },
+  {
+    "id": "spark-lex-05",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What does SORT BY mean in Spark SQL?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 81
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "spark-lex-06",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What is the -Xmx option?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 15
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 17
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "spark-lex-07",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What is a SPOF?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 9
+      },
+      {
+        "file": "3-failure-and-resiliency-pinciples-distributed-computing.pdf",
+        "page": 29
+      },
+      {
+        "file": "3-failure-and-resiliency-pinciples-distributed-computing.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": "acronym; slide only lists it"
+  },
+  {
+    "id": "spark-lex-08",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What does the snappy compression option do when reading or writing?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 50
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 53
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "spark-lex-09",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What does the 2^32 - 1 limit refer to?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 15
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 17
+      }
+    ],
+    "keywords": [],
+    "notes": "number"
+  },
+  {
+    "id": "spark-lex-10",
+    "course": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+    "question": "What are DeltaLake and Iceberg used for in Spark?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 44
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 45
+      }
+    ],
+    "keywords": [],
+    "notes": "tool name"
+  }
+]

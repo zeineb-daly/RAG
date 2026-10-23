@@ -1,0 +1,662 @@
+[
+  {
+    "id": "nosql-fact-01",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What does ACID stand for?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 4
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-fact-02",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What does Atomic mean in ACID?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 5
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-fact-03",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What are the main features of standard OLTP databases?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 2
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-fact-04",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "When does a newly written file become visible to readers?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 15
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 17
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-fact-05",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What time travel features does Iceberg offer?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 27
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-fact-06",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Which Parquet optimizations are mentioned in the course?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 33
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-fact-07",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is the cost of looking up a row by ID in a B-Tree?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 29
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-fact-08",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Which file format is used in Big Data instead of B-Tree files?",
+    "type": "factual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 30
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 9
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-01",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why is the commit with temporary directories not really atomic?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 8
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 9
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-02",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why does a Spark read fail when another process overwrites the same table?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 10
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-03",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why is Spark not isolated when writing to several partitions?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 11
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-04",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "How is a row update written in a standard OLTP database?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 12
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-05",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "How does the overwrite-per-partition strategy update data in Big Data?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 24
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-06",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "How does Iceberg solve the read isolation problem of Hive tables?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 25
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 26
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-07",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is the difference between Copy on Write and Merge on Read in Iceberg?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 28
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-conc-08",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why are B-Trees not used in Big Data storage?",
+    "type": "conceptual",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 30
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-01",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "If a database transaction fails halfway, what happens to the changes that were already made?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 5
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-02",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why can't Hadoop update a single record in place inside a file?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 13
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 22
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 23
+      },
+      {
+        "file": "TD2-part1-spark-read-write.pdf",
+        "page": 25
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-03",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Which hidden marker tells you that a Hadoop job finished correctly?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 7
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 54
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-04",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What can go wrong when a huge Spark job replaces its old output with new output?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 8
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 9
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-05",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Can a program see a file while another program is still writing it in HDFS?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 15
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 17
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-06",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why does my Spark job crash with a missing file error after running for a long time?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 10
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-07",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "How do traditional databases make sure committed changes survive a crash?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 2
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 12
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-08",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why is looking up a row by its key fast in a relational database?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 29
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 31
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-09",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "How can I query an older version of a table in a data lake?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 27
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 44
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-10",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why do frequent row updates make an Iceberg table slow?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 28
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-11",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "How can a query avoid reading the whole dataset in Big Data?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 33
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 66
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-12",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why is it a bad idea to keep huge data files in RAM?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 30
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-13",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "How does a database use the operating system to access its files faster?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 23
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-para-14",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Can several clients read the same part of a big file at the same time?",
+    "type": "paraphrased",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 16
+      }
+    ],
+    "keywords": [],
+    "notes": ""
+  },
+  {
+    "id": "nosql-lex-01",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is the _SUCCESS file used for?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 7
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 54
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "nosql-lex-02",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is a .crc file used for?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 7
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "nosql-lex-03",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is the WAL in OLTP databases?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 2
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 12
+      }
+    ],
+    "keywords": [],
+    "notes": "acronym"
+  },
+  {
+    "id": "nosql-lex-04",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is the UNDO file in Oracle?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 12
+      }
+    ],
+    "keywords": [],
+    "notes": "proper name"
+  },
+  {
+    "id": "nosql-lex-05",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is MMAP and why do databases use it?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 23
+      }
+    ],
+    "keywords": [],
+    "notes": "acronym"
+  },
+  {
+    "id": "nosql-lex-06",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is an FSDataInputStream?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 18
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 19
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 24
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "nosql-lex-07",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What can you do with an FSDataOutputStream?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 20
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 21
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 24
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "nosql-lex-08",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "Why is there no lseek() in Big Data storage?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 13
+      },
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 22
+      },
+      {
+        "file": "4-hadoop-ecosystem.pdf",
+        "page": 23
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  },
+  {
+    "id": "nosql-lex-09",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is MVCC used for in OLTP databases?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 2
+      }
+    ],
+    "keywords": [],
+    "notes": "acronym; slide only lists it next to read isolation"
+  },
+  {
+    "id": "nosql-lex-10",
+    "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+    "question": "What is SELECT AS OF used for?",
+    "type": "lexical",
+    "relevant": [
+      {
+        "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+        "page": 27
+      },
+      {
+        "file": "1-Introduction-Spark-Distributed-Dataset-Operations.pdf",
+        "page": 44
+      }
+    ],
+    "keywords": [],
+    "notes": "code identifier"
+  }
+]

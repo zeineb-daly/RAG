@@ -2,3 +2,7 @@
 ragas==0.4.3
 # ragas 0.4.3 imports langchain_community.chat_models.vertexai, removed in 0.4.2
 langchain-community==0.4.1
+# BM25 retriever (keyword search) compared with embeddings
+rank_bm25==0.2.2
+# Standard English stopword list for BM25 (ENGLISH_STOP_WORDS)
+scikit-learn==1.5.2
