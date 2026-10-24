@@ -9,3 +9,5 @@ langchain-chroma
 chromadb
 pypdf
 python-multipart
+rank_bm25==0.2.2
+scikit-learn==1.5.2

@@ -5,7 +5,7 @@ import tempfile
 
 from app.schemas import QuestionRequest
 from app.ingestion import compute_file_hash, is_already_indexed, index_pdf
-from app.retriever import format_docs, extract_sources
+from app.retriever import format_docs, extract_sources, build_bm25_index
 from app.courses import list_courses, retrieve_documents_for_course
 from app.conversation import condense_question
 from app.generation import generate_answer
@@ -16,6 +16,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
+
+# Keyword index for the "bm25" and "hybrid" modes, built from the chunks already in Chroma
+build_bm25_index()
 
 
 # -------------------------
@@ -72,6 +75,9 @@ async def upload_document(file: UploadFile = File(...)):
         # 3. Load, split and store in Chroma
         chunks_indexed = index_pdf(temp_path, file.filename, file_hash)
 
+        # 4. The new chunks must also be searchable by keywords
+        build_bm25_index()
+
         return {
             "filename": file.filename,
             "chunks_indexed": chunks_indexed,
@@ -110,7 +116,7 @@ def ask_question(request: QuestionRequest):
             detail="Question cannot be empty."
         )
     try:
-        logger.info("Received a question (course: %s)", request.course or "all")
+        logger.info("Received a question (course: %s, mode: %s)", request.course or "all", request.mode)
 
         # 0. Follow-up questions are rewritten using the conversation history
         standalone_question = condense_question(question, request.history)
@@ -118,7 +124,7 @@ def ask_question(request: QuestionRequest):
             logger.info("Standalone question: %s", standalone_question)
 
         # 1. Retrieval: find the most relevant chunks (in one course or in all)
-        retrieved_docs = retrieve_documents_for_course(standalone_question, request.course)
+        retrieved_docs = retrieve_documents_for_course(standalone_question, request.course, request.mode)
         logger.info("Retrieved %d documents", len(retrieved_docs))
 
         # 2. Build the context for the LLM
@@ -135,7 +141,8 @@ def ask_question(request: QuestionRequest):
             "question": question,
             "standalone_question": standalone_question,
             "answer": answer,
-            "sources": sources
+            "sources": sources,
+            "mode": request.mode
         }
     except Exception:
         logger.exception("RAG request failed")
