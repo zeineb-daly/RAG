@@ -66,7 +66,8 @@ def main():
         "",
         f"- Corpus: {len({c.metadata['file'] for c in chunks})} PDFs, {len(chunks)} chunks",
         f"- Questions: {len(questions)} (out-of-scope excluded)",
-        f"- k = {TOP_K} retrieved chunks per question (same as the app)",
+        # The app's own k is TOP_K in .env (3 by default): this run may override it (-e TOP_K=5)
+        f"- k = {TOP_K} retrieved chunks per question (the app uses TOP_K from .env, 3 by default)",
         "- Dense = nomic-embed-text + prefix (the app's retriever)",
         "- BM25 (raw) = keyword search on lowercase words",
         "- BM25 + stopwords = same, without common English words (scikit-learn ENGLISH_STOP_WORDS)",
