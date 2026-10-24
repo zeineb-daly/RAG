@@ -4,15 +4,13 @@ Both have the same two methods:
     index(chunks)        : prepare the retriever with all the chunks of the corpus
     search(question, k)  : return the k best chunks, best first
 """
-import re
-
 from langchain_chroma import Chroma
-from langchain_community.retrievers import BM25Retriever as LangchainBM25
 from langchain_core.embeddings import Embeddings
 from langchain_ollama import OllamaEmbeddings
-from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 from app.config import OLLAMA_BASE_URL, EMBEDDING_MODEL, EMBEDDING_QUERY_PREFIX, EMBEDDING_DOC_PREFIX
+# Same BM25 and fusion code as the app
+from app.search import HYBRID_CANDIDATES, bm25_index, reciprocal_rank_fusion
 
 
 class PrefixedEmbeddings(Embeddings):
@@ -54,30 +52,15 @@ class DenseRetriever:
         return self.vectorstore.similarity_search(question, k=k)
 
 
-def words(text):
-    """Lowercase words, keeping identifiers like _success or mappartitions."""
-    return re.findall(r"\w+", text.lower())
-
-
-def words_without_stopwords(text):
-    """Same as words(), without common English words (what, is, the, how...)."""
-    return [w for w in words(text) if w not in ENGLISH_STOP_WORDS]
-
-
 class BM25Retriever:
-    """Keyword search: scores chunks by the rare words they share with the question.
-
-    Slides contain few full sentences, so words like "what" or "is" are rare in
-    the corpus and BM25 gives them a high weight: removing stopwords fixes that.
-    """
+    """Keyword search (see app/search.py), with or without English stopwords."""
 
     def __init__(self, remove_stopwords):
         self.remove_stopwords = remove_stopwords
         self.name = "BM25 + stopwords" if remove_stopwords else "BM25 (raw)"
 
     def index(self, chunks):
-        preprocess = words_without_stopwords if self.remove_stopwords else words
-        self.bm25 = LangchainBM25.from_documents(chunks, preprocess_func=preprocess)
+        self.bm25 = bm25_index(chunks, self.remove_stopwords)
 
     def search(self, question, k):
         self.bm25.k = k
@@ -85,14 +68,10 @@ class BM25Retriever:
 
 
 class HybridRetriever:
-    """Combine Dense and BM25 with Reciprocal Rank Fusion (RRF).
-
-    Each chunk gets 1 / (60 + rank) in each list; the scores are added, so a
-    chunk ranked well by both retrievers comes first. 60 is the usual RRF constant.
-    """
+    """Combine Dense and BM25 with Reciprocal Rank Fusion (see app/search.py)."""
     name = "Hybrid"
 
-    def __init__(self, dense, bm25, candidates=10):
+    def __init__(self, dense, bm25, candidates=HYBRID_CANDIDATES):
         self.retrievers = [dense, bm25]
         self.candidates = candidates
 
@@ -100,11 +79,8 @@ class HybridRetriever:
         pass  # uses the two retrievers, already indexed
 
     def search(self, question, k):
-        scores, chunks = {}, {}
-        for retriever in self.retrievers:
-            for rank, doc in enumerate(retriever.search(question, self.candidates), start=1):
-                key = (doc.metadata["file"], doc.metadata["page"], doc.page_content)
-                scores[key] = scores.get(key, 0) + 1 / (60 + rank)
-                chunks[key] = doc
-        best = sorted(scores, key=scores.get, reverse=True)[:k]
-        return [chunks[key] for key in best]
+        return reciprocal_rank_fusion(
+            [retriever.search(question, self.candidates) for retriever in self.retrievers],
+            key=lambda doc: (doc.metadata["file"], doc.metadata["page"], doc.page_content),
+            k=k,
+        )
