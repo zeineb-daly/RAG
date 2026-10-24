@@ -57,11 +57,12 @@ ESILV Tutor is that tool: a Retrieval-Augmented Generation (RAG) application bui
 | 💬 | **Chat with your courses** | Ask questions in natural language and get a clear, structured explanation. |
 | 📄 | **Page-level sources** | Every answer lists the PDF and page numbers it is based on. |
 | 📚 | **Course filter** | Search all courses at once, or only inside one course. |
+| 🔍 | **3 retrieval modes** | Switch live between **Dense** (embeddings), **BM25** (keywords) and **Hybrid** (both, merged with Reciprocal Rank Fusion). |
 | 🔁 | **Follow-up questions** | *"Can you explain it more simply?"* works: follow-ups are rewritten using the conversation history. |
 | 🚫 | **Honest refusals** | Out-of-scope questions get *"I could not find this information in your course materials."* |
 | ♻️ | **Duplicate detection** | Re-uploading the same PDF is detected with a SHA-256 hash. |
 | 🔒 | **Fully local** | LLM and embeddings run with Ollama — no API key, no data sent outside. |
-| 📊 | **Built-in evaluation** | Scripts to compare embedding models and LLMs with RAGAS and custom metrics. |
+| 📊 | **Built-in evaluation** | Scripts to compare embedding models, retrieval modes and LLMs with RAGAS and custom metrics. |
 
 ---
 
@@ -94,12 +95,14 @@ flowchart LR
     subgraph Backend["Backend (app/)"]
         API --> ING[Ingestion]
         API --> CONV[Conversation<br/>question rewriting]
-        API --> RET[Retriever<br/>+ course filter]
+        API --> RET[Retriever<br/>Dense · BM25 · Hybrid<br/>+ course filter]
         API --> GEN[Generation<br/>tutor prompt]
+        RET --> BM[BM25 index<br/>in memory]
     end
 
     ING --> DB[(ChromaDB<br/>vector store)]
     RET --> DB
+    DB -. chunks at startup<br/>and after each upload .-> BM
 
     subgraph Ollama["Ollama (local)"]
         EMB[nomic-embed-text<br/>embeddings]
@@ -123,7 +126,10 @@ flowchart LR
     D --> E[Add metadata<br/>file name, page, hash]
     E --> F["Embed with prefix<br/>'search_document: ...'"]
     F --> G[(ChromaDB)]
+    G --> H[Rebuild the<br/>BM25 index]
 ```
+
+My own setup indexes **9 PDFs** (6 lecture decks + 3 TD exercise sheets), which gives **613 chunks**.
 
 ### 2. Answering a question
 
@@ -136,18 +142,28 @@ sequenceDiagram
     participant DB as ChromaDB
 
     S->>UI: "Why is it not used in Big Data?"
-    UI->>API: question + course + history
+    UI->>API: question + course + history + mode
     alt conversation has previous messages
         API->>LLM: rewrite into a standalone question
         LLM-->>API: "Why is a B-Tree not used in Big Data?"
     end
-    API->>DB: similarity search (k=3, optional course filter)
+    API->>DB: search with the chosen mode (k=3, optional course filter)
     DB-->>API: 3 most relevant chunks + pages
     API->>LLM: tutor prompt + chunks + question
     LLM-->>API: explanation
-    API-->>UI: answer + sources + rewritten question
+    API-->>UI: answer + sources + mode + rewritten question
     UI-->>S: answer with page references
 ```
+
+### Retrieval modes
+
+| Mode | How it finds chunks | Good at |
+|---|---|---|
+| `dense` (default) | `nomic-embed-text` embeddings, similarity search in ChromaDB | Questions worded differently from the slides |
+| `bm25` | Keyword search (lowercase words, English stopwords removed) | Rare exact terms: `.crc`, `TimSort`, `DeltaLake` |
+| `hybrid` | Top 10 of Dense + top 10 of BM25, merged with **Reciprocal Rank Fusion** (each chunk scores `1 / (60 + rank)` per list, equal weights), then the top `TOP_K` | Both |
+
+The BM25 index is built in memory from the chunks already stored in ChromaDB, when the backend starts and after each new upload. The BM25 and fusion code lives in `app/search.py` and is shared with the evaluation, so the app and the measured results use exactly the same logic.
 
 ### The tutor prompt
 
@@ -163,7 +179,7 @@ The LLM is instructed to behave like a patient teacher, with rules designed from
 
 ## Evaluation-driven design
 
-Every important choice in this project was **measured**, not guessed. The evaluation set contains **33 questions** on a Big Data course (NoSQL vs OLTP databases), annotated with the expected pages and keywords:
+Every important choice in this project was **measured**, not guessed. Steps 1 and 2 use a first set of **33 questions** on a Big Data course (NoSQL vs OLTP databases), annotated with the expected pages and keywords. Step 3 uses a larger set of 124 questions on all the courses.
 
 | Type | Count | Example |
 |---|---:|---|
@@ -225,6 +241,36 @@ Both LLMs receive **exactly the same retrieved context** for each question; only
 - ✅ **Fix:** the refusal sentence is now reserved for contexts with *nothing* relevant; partial information must be used. *(Re-evaluation with the new prompt is the next step.)*
 - `llama3.2:3b` answers more often and faster, but manual review showed it sometimes states facts not present in the slides — something keyword metrics cannot detect.
 
+### Step 3 — Dense vs BM25 vs Hybrid (retrieval)
+
+All **9 PDFs** are indexed together (613 chunks), like in the app with no course filter. The **124 questions** are annotated with every page that answers them, in any PDF ([details](evaluation/datasets/README.md)):
+
+| Type | Count | Example |
+|---|---:|---|
+| Factual | 29 | *What is a task in Spark?* |
+| Conceptual | 31 | *What is the main difference between Yarn and Kubernetes?* |
+| Paraphrased | 34 | *How can a company share cluster capacity between several teams?* |
+| Lexical | 30 | *What is a .crc file used for?* |
+
+12 of them come from the teacher's TD exercises. 10 extra out-of-scope questions are kept for the generation tests.
+
+**Results (k=3, all 124 questions):**
+
+| Mode | Hit Rate@3 | MRR |
+|---|---:|---:|
+| Dense | 76% | 0.65 |
+| BM25 (stopwords removed) | 73% | 0.60 |
+| **Hybrid (RRF)** | **77%** | **0.70** |
+
+**Findings**
+
+- Dense and BM25 are **complementary**: at least one of them finds a relevant page for 86% of the questions, but they miss different ones.
+- Hybrid gives the **best ranking** (MRR 0.65 → 0.70) and helps most on paraphrased and lexical questions. Its Hit Rate gain is small: it wins 9 questions and loses 7 compared with Dense.
+- Removing English stopwords matters for BM25 on slides: Hit Rate went from 61% to 73%.
+- Dense stays the default mode. Hybrid is available in the app to compare live, and the fusion settings (weights, number of candidates) are still to be tuned.
+
+Full results, with the questions each mode misses: [k=3](evaluation/results/retrieval_dense_vs_bm25_k3.md) · [k=5](evaluation/results/retrieval_dense_vs_bm25_k5.md).
+
 ### What I learned
 
 1. **Evaluate each RAG stage separately.** A wrong answer can come from retrieval (wrong pages) *or* generation (right pages, wrong reading). Measuring both tells you what to fix.
@@ -243,6 +289,7 @@ Both LLMs receive **exactly the same retrieved context** for each question; only
 | RAG framework | LangChain |
 | Vector store | ChromaDB (persistent) |
 | Embeddings | `nomic-embed-text` via Ollama |
+| Keyword search | BM25 (`rank_bm25`), Reciprocal Rank Fusion for Hybrid |
 | LLM | `qwen2.5:7b` via Ollama (temperature 0) |
 | PDF parsing | PyPDF |
 | Evaluation | RAGAS + custom metrics |
@@ -257,19 +304,23 @@ ESILV_Tutor/
 ├── app/                        # FastAPI backend — the RAG pipeline
 │   ├── main.py                 # API routes: /, /courses, /upload, /ask
 │   ├── config.py               # Models, paths, chunking, prefixes
-│   ├── schemas.py              # Request models (question, course, history)
+│   ├── schemas.py              # Request models (question, course, history, mode)
 │   ├── ingestion.py            # Load, split and index PDFs
-│   ├── retriever.py            # Vector store + prefixed embeddings
-│   ├── courses.py              # Course list and course filter
+│   ├── retriever.py            # Vector store, prefixed embeddings, BM25 and Hybrid search
+│   ├── search.py               # BM25 + Reciprocal Rank Fusion (shared with the evaluation)
+│   ├── courses.py              # Course list, course filter, retrieval mode
 │   ├── conversation.py         # Follow-up question rewriting
 │   └── generation.py           # Tutor prompt + LLM
 ├── ui/
 │   ├── ui.py                   # Streamlit chat interface
 │   └── assets/esilv_logo.png
 ├── evaluation/
-│   ├── eval_questions.json     # 33 annotated questions
+│   ├── eval_questions.json     # 33 annotated questions (one course)
 │   ├── evaluate_retrieval.py   # Embedding model comparison
 │   ├── evaluate_generation.py  # LLM comparison
+│   ├── compare_k.py            # Generation test, k=3 vs k=5
+│   ├── datasets/               # 134 annotated questions on all courses + validate.py
+│   ├── retrieval/              # Dense vs BM25 vs Hybrid comparison
 │   └── results/                # Tables, CSV and side-by-side answers
 ├── scripts/
 │   └── ingest.py               # Index a PDF from the command line
@@ -328,7 +379,7 @@ streamlit run ui/ui.py              # frontend (in a second terminal)
 
 ### Run the evaluation
 
-The evaluation expects the course PDF in `data/courses/`.
+The evaluation expects the course PDFs in `data/courses/`.
 
 ```bash
 # Extra models used for the comparisons
@@ -338,6 +389,15 @@ ollama pull llama3.2:3b
 
 # Retrieval: compare embedding models (~1 min)
 docker compose run --rm evaluation
+
+# Retrieval: compare Dense, BM25 and Hybrid on the 124 questions (k = TOP_K from .env)
+docker compose run --rm evaluation python -m evaluation.retrieval.run
+# Same with k=5
+docker compose run --rm -e TOP_K=5 evaluation python -m evaluation.retrieval.run
+
+# Check the datasets against the PDFs, and test the metrics
+docker compose run --rm evaluation python evaluation/datasets/validate.py
+docker compose run --rm evaluation python -m evaluation.retrieval.test_metrics
 
 # Generation: compare LLMs (~45 min on CPU)
 docker compose run --rm evaluation python -m evaluation.evaluate_generation
@@ -382,6 +442,7 @@ Example `/ask` request:
 {
   "question": "Why is it not used in Big Data?",
   "course": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf",
+  "mode": "hybrid",
   "history": [
     { "role": "user", "content": "What is a B-Tree?" },
     { "role": "assistant", "content": "A B-Tree is a data structure..." }
@@ -396,11 +457,12 @@ Response:
   "question": "Why is it not used in Big Data?",
   "standalone_question": "Why is a B-Tree not used in Big Data?",
   "answer": "B-Trees are only efficient when...",
-  "sources": [{ "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf", "page": "30" }]
+  "sources": [{ "file": "1.1-comparison-NoSql-DB-vs-standard-DB.pdf", "page": "30" }],
+  "mode": "hybrid"
 }
 ```
 
-`course` is optional (all courses are searched when omitted) and `history` can be empty.
+`course` is optional (all courses are searched when omitted) and `history` can be empty. `mode` is `"dense"` (default), `"bm25"` or `"hybrid"`.
 
 ---
 
@@ -411,13 +473,14 @@ Response:
 - **Image-only slides are invisible.** Text is extracted with PyPDF, so diagrams and screenshots are not understood.
 - **CPU speed.** Without a GPU, `qwen2.5:7b` takes about 30–60 s per answer.
 - **Faithfulness.** The model sometimes adds general knowledge that is not in the slides; always check the cited pages.
-- **Small evaluation set.** 33 questions on one course: results are indicative, not definitive.
+- **Evaluation set size.** 124 retrieval questions written by one person: results are indicative, not definitive (see the known bias in [evaluation/datasets/README.md](evaluation/datasets/README.md)).
 
 ### Roadmap
 
 - [ ] Re-run the generation evaluation with the revised prompt
 - [ ] Separate *"From your course"* and *"General knowledge"* in answers
 - [ ] Tune `TOP_K` (3 vs 5) with the retrieval evaluation
+- [ ] Tune the Hybrid fusion (weights, number of candidates) and choose the default mode
 - [ ] Faithfulness metric with an LLM judge (RAGAS)
 - [ ] Quiz mode: the tutor asks questions about a course
 - [ ] OCR for image-only slides
